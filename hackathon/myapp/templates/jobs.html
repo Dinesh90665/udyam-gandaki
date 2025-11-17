@@ -1,0 +1,11 @@
+<h2>Local Job Opportunities</h2>
+{% for job in jobs %}
+  <div style="background:#fff;padding:15px;margin:10px;border-radius:8px;">
+    <h3>{{ job.title }}</h3>
+    <p>{{ job.description }}</p>
+    <p><b>Location:</b> {{ job.location }} | <b>Pay:</b> {{ job.pay_rate }}</p>
+    <button onclick="alert('✅ Hired successfully!')">Hire Now</button>
+  </div>
+{% empty %}
+  <p>No jobs posted yet.</p>
+{% endfor %}

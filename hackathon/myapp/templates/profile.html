@@ -1,0 +1,15 @@
+<h2>My Profile</h2>
+
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  <label>Skills:</label><br>
+  <input type="text" name="skills" value="{{ profile.skills }}"><br><br>
+  <label>Bio:</label><br>
+  <textarea name="bio">{{ profile.bio }}</textarea><br><br>
+  <label>Certificate:</label><br>
+  {% if profile.certificate %}
+    <a href="{{ profile.certificate.url }}">View Certificate</a><br>
+  {% endif %}
+  <input type="file" name="certificate"><br><br>
+  <button type="submit">Save</button>
+</form>

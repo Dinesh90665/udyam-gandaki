@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Worker Dashboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background: #f4f6f9;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100vh;
+            width: 240px;
+            background: #1a73e8;
+            position: fixed;
+            left: 0;
+            top: 0;
+            color: white;
+            padding-top: 30px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 14px 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            padding-left: 35px;
+        }
+
+        /* Main content area */
+        .main {
+            margin-left: 240px;
+            padding: 20px;
+        }
+
+        /* Top bar */
+        .topbar {
+            background: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .topbar h2 {
+            margin: 0;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .user-info {
+            font-size: 16px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Dashboard box */
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 10px;
+        }
+
+        .box h3 {
+            margin-top: 0;
+            color: #1a73e8;
+            font-weight: 600;
+        }
+
+        .box p {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 180px;
+            }
+            .main {
+                margin-left: 180px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .main {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Worker Panel</h2>
+    <a href="jobs">Available Jobs</a>
+    <a href="#">My Applications</a>
+    <a href="#">Saved Jobs</a>
+    <a href="#">Profile Settings</a>
+    <a href="{% url 'logout' %}">Logout</a>
+</div>
+
+<div class="main">
+    <div class="topbar">
+        <h2>Dashboard</h2>
+        <div class="user-info">
+            👤 {{ request.user.username }}
+        </div>
+    </div>
+
+    <div class="box">
+        <h3>Welcome Back, {{ request.user.first_name|default:request.user.username }} 👋</h3>
+        <p>
+            Explore the latest job opportunities, track your applications, update your worker profile, and manage your account — all from one place.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>

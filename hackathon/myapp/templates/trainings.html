@@ -1,0 +1,11 @@
+<h2>Available Training Programs</h2>
+{% for t in trainings %}
+  <div style="background:#fff;padding:15px;margin:10px;border-radius:8px;">
+    <h3>{{ t.title }}</h3>
+    <p><b>Provider:</b> {{ t.provider }}</p>
+    <p><b>Location:</b> {{ t.location }} | <b>Duration:</b> {{ t.duration }}</p>
+    <p>{{ t.description }}</p>
+  </div>
+{% empty %}
+  <p>No trainings available yet.</p>
+{% endfor %}
